@@ -2,34 +2,44 @@ package br.com.exemplo;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import junit.framework.TestCase;
+public class TesteLista{
 
-public class TesteLista extends TestCase{
+	boolean booleanTeste = true;
 
-	private int x = 1;
-	private int y = 1;
-	
-	@Before
-	protected void inicializar(){
-		System.out.println("Iniciando tudo..");
+	@BeforeClass
+	public static void carregarLista() {
+		// intanciar a minha lista
+		// adicionar valores
 	}
-	
+
 	@Test
 	public void test() {
 		fail("Not yet implemented");
 	}
-	
+
 	@Test
-	public void testeX1(){
-		assertEquals(x, 1);
+	public void exemploSucesso() {
+		assertEquals(1, 1);
 	}
+
+	@Test
+	public void testePreOrdem() {
+		assertEquals("10,20,40", "10,40,20");
+	}
+
+	@Test(expected = ArithmeticException.class)
+	public void falhaMatematica() {
+		float valor = 1 / 0;
+	};
 	
 	@Test
-	public void testeNotX1(){
-		assertNotEquals(x, 0);
+	public void testeDeVerdade(){
+		if(booleanTeste){
+			fail("O resultado foi positivo!");
+		}
 	}
 
 }
